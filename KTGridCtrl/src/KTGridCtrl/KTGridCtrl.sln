@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KTGridCtrl", "KTGridCtrl.vcxproj", "{3A357A2E-FF12-43D9-962E-92171337CDD8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestKTGridCtrl", "..\TestKTGridCtrl\TestKTGridCtrl.vcxproj", "{E1A3A5AC-10F0-411B-8D23-3E853C69188C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A357A2E-FF12-43D9-962E-92171337CDD8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3A357A2E-FF12-43D9-962E-92171337CDD8}.Debug|Win32.Build.0 = Debug|Win32
+		{3A357A2E-FF12-43D9-962E-92171337CDD8}.Release|Win32.ActiveCfg = Release|Win32
+		{3A357A2E-FF12-43D9-962E-92171337CDD8}.Release|Win32.Build.0 = Release|Win32
+		{E1A3A5AC-10F0-411B-8D23-3E853C69188C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E1A3A5AC-10F0-411B-8D23-3E853C69188C}.Debug|Win32.Build.0 = Debug|Win32
+		{E1A3A5AC-10F0-411B-8D23-3E853C69188C}.Release|Win32.ActiveCfg = Release|Win32
+		{E1A3A5AC-10F0-411B-8D23-3E853C69188C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

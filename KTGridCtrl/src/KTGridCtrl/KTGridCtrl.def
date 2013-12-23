@@ -1,0 +1,22 @@
+; KTGridCtrl.def : Declares the module parameters for the DLL.
+
+LIBRARY
+
+EXPORTS
+    ; Explicit exports can go here
+	KTGridCreateControl       @1
+	KTGridSetRowCount         @2
+	KTGridSetColumnCount      @3
+	KTGridSetLabelText        @4
+	KTGridSetCellValue        @5
+	KTGridSetRowHeight        @6
+	KTGridSetColumnWidth      @7
+	KTGridGetColumnCount      @8
+	KTGridGetRowCount         @9
+	KTGridSetFixedColumnCount @10
+	KTGridSetFixedRowCount    @11
+	KTGridIsEditable          @12
+	KTGridSetEditable         @13
+	KTGridSetBackgroundColor  @14
+	KTGridSetTextColor        @15
+	KTGridDeleteControl       @16
