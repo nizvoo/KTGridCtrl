@@ -115,7 +115,9 @@ KTGrid::~KTGrid()
 
 BOOL KTGrid::CreateControl(CWnd* parent)
 {
-  m_base_grid = MyKTGridCreateControl(parent);
+  if (MyKTGridCreateControl) {
+    m_base_grid = MyKTGridCreateControl(parent);
+  }
   return m_base_grid != NULL;
 }
 

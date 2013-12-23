@@ -42,6 +42,12 @@ void CBaseGridCtrl::OnSize(UINT nType, int cx, int cy)
   CRect rect;
   GetClientRect(&rect);
   //ScreenToClient(&rect);
+  int space = 0;
+  rect.left -= space;
+  rect.right -= space;
+  rect.top -= space;
+  rect.bottom -= space;
+
   if (m_view_data_grid.GetSafeHwnd())
     m_view_data_grid.MoveWindow(rect);
 }
