@@ -33,8 +33,7 @@ public:
   void SetRowHeight(int row, int height);
   void SetColumnWidth(int column, int width);
 
-  void SetCellValue(int row, int column, const wchar_t*);
-  void SetCellValue(int row, int column, const char*);
+  void SetCellValue(int row, int column, const TCHAR*);
 
   void SetBackgroundColor(int row, int column, COLORREF color);
   void SetTextColor(int row, int column, COLORREF color);

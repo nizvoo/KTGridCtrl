@@ -7,7 +7,7 @@ static HMODULE grid_ctrl_inst = NULL;
 
 typedef CWnd* (__stdcall * TKTGridCreateControl)(CWnd*);
 typedef CWnd* (__stdcall * TKTGridDeleteControl)(CWnd*);
-typedef void (__stdcall * TKTGridSetCellValue)(CWnd*, int, int, const wchar_t*);
+typedef void (__stdcall * TKTGridSetCellValue)(CWnd*, int, int, const TCHAR*);
 typedef void (__stdcall * TKTGridSetRowCount)(CWnd*, int);
 typedef void (__stdcall * TKTGridSetColumnCount)(CWnd*, int);
 
@@ -171,19 +171,10 @@ void KTGrid::SetColumnWidth(int column, int width)
     MyKTGridSetColumnWidth(m_base_grid, column, width);
 }
 
-void KTGrid::SetCellValue(int row, int column, const wchar_t* text)
+void KTGrid::SetCellValue(int row, int column, const TCHAR* text)
 {
   if (m_base_grid && MyKTGridSetCellValue)
     MyKTGridSetCellValue(m_base_grid, row, column, text);
-}
-
-void KTGrid::SetCellValue(int row, int column, const char* ascii_text)
-{
-  if (m_base_grid && MyKTGridSetCellValue) {
-    wchar_t text[MAX_PATH + 1] = {0};
-    mbstowcs(text, ascii_text, MAX_PATH);
-    MyKTGridSetCellValue(m_base_grid, row, column, text);
-  }
 }
 
 void KTGrid::SetBackgroundColor(int row, int column, COLORREF color)
