@@ -6,7 +6,9 @@
  * This utility must use MFC extension dynamic link library
  * It is interface for grid control c++ language
  * 2013 @ KT corp.
+ * 2021 @ Flexus3D INC.
  * zhangyong.ni@gmail.com
+ * alexander@flexus3d.com
  */
 
 BOOL InitKTGrid(const TCHAR* path);

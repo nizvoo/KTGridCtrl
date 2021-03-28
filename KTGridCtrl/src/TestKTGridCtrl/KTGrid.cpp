@@ -1,3 +1,12 @@
+/*
+ * This utility must use MFC extension dynamic link library
+ * It is interface for grid control c++ language
+ * 2013 @ KT corp.
+ * 2021 @ Flexus3D INC.
+ * zhangyong.ni@gmail.com
+ * alexander@flexus3d.com
+ */
+
 #include "stdafx.h"
 
 #include "KTGrid.h"
@@ -56,23 +65,23 @@ static BOOL LoadKTGridCtrlDll(const TCHAR* filename)
 
   if (!grid_ctrl_inst) return FALSE;
 
-  MyKTGridCreateControl = (TKTGridCreateControl)GetProcAddress(grid_ctrl_inst, "KTGridCreateControl");
-  MyKTGridDeleteControl = (TKTGridDeleteControl)GetProcAddress(grid_ctrl_inst, "KTGridDeleteControl");
-  MyKTGridSetRowCount = (TKTGridSetRowCount)GetProcAddress(grid_ctrl_inst, "KTGridSetRowCount");
-  MyKTGridSetColumnCount = (TKTGridSetColumnCount)GetProcAddress(grid_ctrl_inst, "KTGridSetColumnCount");
-  MyKTGridSetCellValue = (TKTGridSetCellValue)GetProcAddress(grid_ctrl_inst, "KTGridSetCellValue");
-  MyKTGridSetRowHeight = (TKTGridSetRowHeight)GetProcAddress(grid_ctrl_inst, "KTGridSetRowHeight");
+  MyKTGridCreateControl = (TKTGridCreateControl)GetProcAddress(grid_ctrl_inst, "ESGridCreateControl");
+  MyKTGridDeleteControl = (TKTGridDeleteControl)GetProcAddress(grid_ctrl_inst, "ESGridDeleteControl");
+  MyKTGridSetRowCount = (TKTGridSetRowCount)GetProcAddress(grid_ctrl_inst, "ESGridSetRowCount");
+  MyKTGridSetColumnCount = (TKTGridSetColumnCount)GetProcAddress(grid_ctrl_inst, "ESGridSetColumnCount");
+  MyKTGridSetCellValue = (TKTGridSetCellValue)GetProcAddress(grid_ctrl_inst, "ESGridSetCellValue");
+  MyKTGridSetRowHeight = (TKTGridSetRowHeight)GetProcAddress(grid_ctrl_inst, "ESGridSetRowHeight");
 
-  MyKTGridSetColumnWidth = (TKTGridSetColumnWidth)GetProcAddress(grid_ctrl_inst, "KTGridSetColumnWidth");
-  MyKTGridGetColumnCount = (TKTGridGetColumnCount)GetProcAddress(grid_ctrl_inst, "KTGridGetColumnCount");
-  MyKTGridGetRowCount = (TKTGridGetRowCount)GetProcAddress(grid_ctrl_inst, "KTGridGetRowCount");
-  MyKTGridSetFixedColumnCount = (TKTGridSetFixedColumnCount)GetProcAddress(grid_ctrl_inst, "KTGridSetFixedColumnCount");
-  MyKTGridSetFixedRowCount = (TKTGridSetFixedRowCount)GetProcAddress(grid_ctrl_inst, "KTGridSetFixedRowCount");
+  MyKTGridSetColumnWidth = (TKTGridSetColumnWidth)GetProcAddress(grid_ctrl_inst, "ESGridSetColumnWidth");
+  MyKTGridGetColumnCount = (TKTGridGetColumnCount)GetProcAddress(grid_ctrl_inst, "ESGridGetColumnCount");
+  MyKTGridGetRowCount = (TKTGridGetRowCount)GetProcAddress(grid_ctrl_inst, "ESGridGetRowCount");
+  MyKTGridSetFixedColumnCount = (TKTGridSetFixedColumnCount)GetProcAddress(grid_ctrl_inst, "ESGridSetFixedColumnCount");
+  MyKTGridSetFixedRowCount = (TKTGridSetFixedRowCount)GetProcAddress(grid_ctrl_inst, "ESGridSetFixedRowCount");
 
-  MyKTGridSetEditable = (TKTGridSetEditable)GetProcAddress(grid_ctrl_inst, "KTGridSetEditable");
-  MyKTGridIsEditable = (TKTGridIsEditable)GetProcAddress(grid_ctrl_inst, "KTGridIsEditable");
-  MyKTGridSetBackgroundColor = (TKTGridSetBackgroundColor)GetProcAddress(grid_ctrl_inst, "KTGridSetBackgroundColor");
-  MyKTGridSetTextColor = (TKTGridSetTextColor)GetProcAddress(grid_ctrl_inst, "KTGridSetTextColor");
+  MyKTGridSetEditable = (TKTGridSetEditable)GetProcAddress(grid_ctrl_inst, "ESGridSetEditable");
+  MyKTGridIsEditable = (TKTGridIsEditable)GetProcAddress(grid_ctrl_inst, "ESGridIsEditable");
+  MyKTGridSetBackgroundColor = (TKTGridSetBackgroundColor)GetProcAddress(grid_ctrl_inst, "ESGridSetBackgroundColor");
+  MyKTGridSetTextColor = (TKTGridSetTextColor)GetProcAddress(grid_ctrl_inst, "ESGridSetTextColor");
 
   return TRUE;
 }
@@ -89,7 +98,7 @@ static BOOL FreeKTGridCtrlDll()
 BOOL InitKTGrid(const TCHAR* path)
 {
   TCHAR filename[MAX_PATH + 1] = {0};
-  _sntprintf(filename, MAX_PATH, _T("%s\\KTGridCtrl.dll"), path);
+  _sntprintf(filename, MAX_PATH, _T("%s\\ESGridCtrl.dll"), path);
   return LoadKTGridCtrlDll(filename);
 }
 
