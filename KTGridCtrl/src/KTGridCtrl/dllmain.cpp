@@ -11,7 +11,7 @@
 #define new DEBUG_NEW
 #endif
 
-static AFX_EXTENSION_MODULE KTGridCtrlDLL = { NULL, NULL };
+static AFX_EXTENSION_MODULE ESGridCtrlDLL = { NULL, NULL };
 
 static CDynLinkLibrary* dll;
 
@@ -23,7 +23,7 @@ public:
     DllInstanceSwitcher()
     {
         m_hInst = AfxGetResourceHandle();
-        AfxSetResourceHandle(KTGridCtrlDLL.hResource);
+        AfxSetResourceHandle(ESGridCtrlDLL.hResource);
     }
 
     ~DllInstanceSwitcher()
@@ -38,7 +38,7 @@ private:
 #define SWITCH_RESOURCE  DllInstanceSwitcher __SwitchInstance;
 //
 
-extern "C" CWnd* __stdcall KTGridCreateControl(CWnd* parent)
+extern "C" CWnd* __stdcall ESGridCreateControl(CWnd* parent)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = new CBaseGridCtrl(parent);
@@ -47,7 +47,7 @@ extern "C" CWnd* __stdcall KTGridCreateControl(CWnd* parent)
   return dlg;
 }
 
-extern "C" void __stdcall KTGridSetRowCount(CWnd* grid, int count)
+extern "C" void __stdcall ESGridSetRowCount(CWnd* grid, int count)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -56,7 +56,7 @@ extern "C" void __stdcall KTGridSetRowCount(CWnd* grid, int count)
   }
 }
 
-extern "C" void __stdcall KTGridSetColumnCount(CWnd* grid, int count)
+extern "C" void __stdcall ESGridSetColumnCount(CWnd* grid, int count)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -65,7 +65,7 @@ extern "C" void __stdcall KTGridSetColumnCount(CWnd* grid, int count)
   }
 }
 
-extern "C" void __stdcall KTGridSetLabelText(CWnd* grid, int row, int column, const TCHAR* text)
+extern "C" void __stdcall ESGridSetLabelText(CWnd* grid, int row, int column, const TCHAR* text)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -73,16 +73,17 @@ extern "C" void __stdcall KTGridSetLabelText(CWnd* grid, int row, int column, co
   }
 }
 
-extern "C" void __stdcall KTGridSetCellValue(CWnd* grid, int row, int column, const TCHAR* text)
+extern "C" void __stdcall ESGridSetCellValue(CWnd* grid, int row, int column, const TCHAR* text)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
   if (dlg) {
     dlg->m_view_data_grid.SetItemText(row, column, text);
+
   }
 }
 
-extern "C" void __stdcall KTGridSetRowHeight(CWnd* grid, int row, int height)
+extern "C" void __stdcall ESGridSetRowHeight(CWnd* grid, int row, int height)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -91,7 +92,7 @@ extern "C" void __stdcall KTGridSetRowHeight(CWnd* grid, int row, int height)
   }
 }
 
-extern "C" void __stdcall KTGridSetColumnWidth(CWnd* grid, int column, int width)
+extern "C" void __stdcall ESGridSetColumnWidth(CWnd* grid, int column, int width)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -101,7 +102,7 @@ extern "C" void __stdcall KTGridSetColumnWidth(CWnd* grid, int column, int width
 }
 
 
-extern "C" int __stdcall  KTGridGetColumnCount(CWnd* grid)
+extern "C" int __stdcall  ESGridGetColumnCount(CWnd* grid)
 {
   int count = 0;
   SWITCH_RESOURCE;
@@ -112,7 +113,7 @@ extern "C" int __stdcall  KTGridGetColumnCount(CWnd* grid)
   return count;
 }
 
-extern "C" int __stdcall  KTGridGetRowCount(CWnd* grid)
+extern "C" int __stdcall  ESGridGetRowCount(CWnd* grid)
 {
   int count = 0;
   SWITCH_RESOURCE;
@@ -123,7 +124,7 @@ extern "C" int __stdcall  KTGridGetRowCount(CWnd* grid)
   return count;
 }
 
-extern "C" void __stdcall  KTGridSetFixedColumnCount(CWnd* grid, int count)
+extern "C" void __stdcall  ESGridSetFixedColumnCount(CWnd* grid, int count)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -132,7 +133,7 @@ extern "C" void __stdcall  KTGridSetFixedColumnCount(CWnd* grid, int count)
   }
 }
 
-extern "C" void __stdcall  KTGridSetFixedRowCount(CWnd* grid, int count)
+extern "C" void __stdcall  ESGridSetFixedRowCount(CWnd* grid, int count)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -141,12 +142,12 @@ extern "C" void __stdcall  KTGridSetFixedRowCount(CWnd* grid, int count)
   }
 }
 
-extern "C" BOOL __stdcall KTGridShowGridControl(CWnd* w)
+extern "C" BOOL __stdcall ESGridShowGridControl(CWnd* w)
 {
   return TRUE;
 }
 
-extern "C" void __stdcall KTGridSetEditable(CWnd* grid, BOOL s)
+extern "C" void __stdcall ESGridSetEditable(CWnd* grid, BOOL s)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -155,7 +156,7 @@ extern "C" void __stdcall KTGridSetEditable(CWnd* grid, BOOL s)
   }
 }
 
-extern "C" BOOL __stdcall KTGridIsEditable(CWnd* grid)
+extern "C" BOOL __stdcall ESGridIsEditable(CWnd* grid)
 {
   BOOL s = FALSE;
   SWITCH_RESOURCE;
@@ -166,7 +167,19 @@ extern "C" BOOL __stdcall KTGridIsEditable(CWnd* grid)
   return s;
 }
 
-extern "C" void __stdcall KTGridSetBackgroundColor(CWnd* grid, int row, int column, COLORREF color)
+extern "C" BOOL __stdcall ESGridSortItem(CWnd* grid, int n, BOOL state)
+{
+  BOOL s = FALSE;
+  SWITCH_RESOURCE;
+  CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
+  if (dlg) {
+    s = dlg->m_view_data_grid.SortItems(0, state);
+  }
+
+  return s;
+}
+
+extern "C" void __stdcall ESGridSetBackgroundColor(CWnd* grid, int row, int column, COLORREF color)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -175,7 +188,7 @@ extern "C" void __stdcall KTGridSetBackgroundColor(CWnd* grid, int row, int colu
   }
 }
 
-extern "C" void __stdcall KTGridSetTextColor(CWnd* grid, int row, int column, COLORREF color)
+extern "C" void __stdcall ESGridSetTextColor(CWnd* grid, int row, int column, COLORREF color)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -184,7 +197,7 @@ extern "C" void __stdcall KTGridSetTextColor(CWnd* grid, int row, int column, CO
   }
 }
 
-extern "C" void __stdcall KTGridDeleteControl(CWnd* grid)
+extern "C" void __stdcall ESGridDeleteControl(CWnd* grid)
 {
   SWITCH_RESOURCE;
   CBaseGridCtrl* dlg = (CBaseGridCtrl*)grid;
@@ -202,10 +215,10 @@ extern "C" int APIENTRY
 
   if (dwReason == DLL_PROCESS_ATTACH)
   {
-    TRACE0("KTGridCtrl.DLL Initializing!\n");
+    TRACE0("ESGridCtrl.DLL Initializing!\n");
 
     // Extension DLL one-time initialization
-    if (!AfxInitExtensionModule(KTGridCtrlDLL, hInstance))
+    if (!AfxInitExtensionModule(ESGridCtrlDLL, hInstance))
       return 0;
 
     // Insert this DLL into the resource chain
@@ -220,15 +233,15 @@ extern "C" int APIENTRY
     //  Regular DLL's resource chain, and serious problems will
     //  result.
 
-    dll = new CDynLinkLibrary(KTGridCtrlDLL);
+    dll = new CDynLinkLibrary(ESGridCtrlDLL);
 
   }
   else if (dwReason == DLL_PROCESS_DETACH)
   {
-    TRACE0("KTGridCtrl.DLL Terminating!\n");
+    TRACE0("ESGridCtrl.DLL Terminating!\n");
 
     // Terminate the library before destructors are called
-    AfxTermExtensionModule(KTGridCtrlDLL);
+    AfxTermExtensionModule(ESGridCtrlDLL);
   }
   return 1;   // ok
 }
